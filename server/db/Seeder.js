@@ -10,13 +10,13 @@ const pool = new pg.Pool({
 class Seeder {
   static async seed() {
     try {
-      // const type_ids = [{ type: "Pigs" }, { type: "Bunnies" }, { type: "Unicorns" }]
+      const type_ids = [{ type: "Pigs" }, { type: "Bunnies" }, { type: "Unicorns" }]
 
-      // for (let i = 0; i < type_ids.length; i++) {
-      //   const type_id = type_ids[i]
-      //   const queryString = `INSERT INTO pet_types (type) VALUES ('${type_id.type}');`
-      //   await pool.query(queryString)
-      // }
+      for (let i = 0; i < type_ids.length; i++) {
+        const type_id = type_ids[i]
+        const queryString = `INSERT INTO pet_types (type) VALUES ('${type_id.type}');`
+        await pool.query(queryString)
+      }
 
       const pigsData = await pool.query("SELECT * FROM pet_types WHERE type = 'Pigs';")
       const pigs = pigsData.rows[0]
