@@ -2,6 +2,7 @@ import React from "react"
 import { Switch, Route, Link } from "react-router-dom"
 import LandingPage from "./LandingPage"
 import IndexPage from "./IndexPage"
+import ShowPage from "./ShowPage"
 import SurrenderForm from "./SurrenderForm"
 
 const NavBar = props => {
@@ -51,6 +52,9 @@ return (
     <Route exact path="/pets/bunnies" component={IndexPage} />
     <Route exact path="/pets/unicorns" component={IndexPage} />		
     <Route exact path="/adoptions/new" component={SurrenderForm} />
+    <Route exact path="/pets/pigs/:id" component={ShowPage} />
+    <Route exact path="/pets/bunnies/:id" component={ShowPage} />
+    <Route exact path="/pets/unicorns/:id" component={ShowPage} />
   </Switch>
  
   <div className="navbar footer">
