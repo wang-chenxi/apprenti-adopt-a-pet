@@ -1,5 +1,3 @@
-import express from "express"
-
 import Animal from "../../../models/Animal.js"
 
 petRouter.get("/pigs/:id", async (req, res) => {
@@ -35,11 +33,8 @@ petRouter.get("/unicorns/:id", async (req, res) => {
 petRouter.post("/", async (req, res) => {
   try {
     const formData = req.body
-    // console.log(formData)
     const newPet = new Animal(formData)
-    // console.log(newCat)
 
-    // return newCat if successfully persisted
     if (await Animal.saveAdoptRequest()) {
       return res.status(201).json({ pet: newPet })
     } else {
