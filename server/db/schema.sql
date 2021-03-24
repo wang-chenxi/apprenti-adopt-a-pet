@@ -1,16 +1,16 @@
 -- CREATE db tables for cc-adopt-a-pet, if they don't exist.
 
 CREATE TABLE IF NOT EXISTS pet_types (
-	id SERIAL PRIMARY KEY,
-	type VARCHAR (255) NOT NULL,
-	description TEXT
-);
+  id SERIAL PRIMARY KEY, 
+  type VARCHAR (255) NOT NULL,	
+  description TEXT
+  );
 
 CREATE TABLE IF NOT EXISTS adoptable_pets (
   id SERIAL PRIMARY KEY,
   name VARCHAR (255) NOT NULL,
   img_url VARCHAR(255) NOT NULL,
-  age INTEGER,
+  age INTEGER DEFAULT NULL,
   vaccination_status BOOLEAN DEFAULT NULL,
   adoption_story TEXT NOT NULL,
   adoption_status VARCHAR(255) NOT NULL,
