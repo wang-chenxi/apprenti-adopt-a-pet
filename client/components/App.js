@@ -1,10 +1,15 @@
-import React from "react"
+import React from 'react'
+import { BrowserRouter, Route } from "react-router-dom"
 import { hot } from "react-hot-loader/root"
 
-import { Route, Switch, BrowserRouter } from "react-router-dom"
+import NavBar from "./NavBar"
 
 const App = props => {
-  return <div>Replace this div with your Router.</div>
+  return (
+    <BrowserRouter>
+		  <Route exact path="/" component={NavBar} />
+    </BrowserRouter>
+  )
 }
 
 export default hot(App)
