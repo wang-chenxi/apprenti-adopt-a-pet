@@ -6,7 +6,16 @@ const pool = new pg.Pool({
 })
 
 class Animal {
-  constructor({ id, name, img_url, age, vaccination_status, adoption_story, adoption_status, type_id }) {
+  constructor({
+    id,
+    name,
+    img_url,
+    age,
+    vaccination_status,
+    adoption_story,
+    adoption_status,
+    type_id
+  }) {
     this.id = id
     this.name = name
     this.img_url = img_url
@@ -17,20 +26,20 @@ class Animal {
     this.type_id = type_id
   }
 
-
   static async findByType(type_id) {
     try {
       const client = await pool.connect()
-      const result = await client.query("SELECT * FROM adoptable_pets WHERE type_id = $1", [type_id])
+      const result = await client.query("SELECT * FROM adoptable_pets WHERE type_id = $1", [
+        type_id
+      ])
       const allOfTypeData = result.rows[0]
-      const allOfType = allOfTypeData.map((ofType) => {
+      const allOfType = allOfTypeData.map(ofType => {
         return new this(ofType)
       })
 
       client.release()
 
       return allOfType
-
     } catch (error) {
       console.error(error)
       pool.end()
@@ -47,7 +56,6 @@ class Animal {
       client.release()
 
       return specificPet
-
     } catch (error) {
       console.error(error)
       pool.end()
@@ -57,8 +65,16 @@ class Animal {
   async saveAdoptRequest() {
     try {
       const client = await pool.connect()
-      const query = "INSERT INTO adoptable_pets (name, image_url, age, vaccination_status, adoption_status, type_id) VALUES ($1, $2, $3, $4, $5, $6)"
-      const values = [this.name, this.image_url, this.age, this.vaccination_status, this.adoption_status, this.type_id]
+      const query =
+        "INSERT INTO adoptable_pets (name, image_url, age, vaccination_status, adoption_status, type_id) VALUES ($1, $2, $3, $4, $5, $6)"
+      const values = [
+        this.name,
+        this.image_url,
+        this.age,
+        this.vaccination_status,
+        this.adoption_status,
+        this.type_id
+      ]
       await client.query(query, values)
 
       const result = await client.query("SELECT * FROM adoptable_pets ORDER BY id DESC LIMIT 1")
@@ -69,7 +85,6 @@ class Animal {
       client.release()
 
       return true
-
     } catch (error) {
       console.error(error)
       pool.end()
@@ -79,12 +94,19 @@ class Animal {
 
   isValid() {
     this.errors = {}
-    const requiredFields = ["name", "image_url", "age", "vaccination_status", "adoption_status", "type_id"]
+    const requiredFields = [
+      "name",
+      "image_url",
+      "age",
+      "vaccination_status",
+      "adoption_status",
+      "type_id"
+    ]
     let isValid = true
 
-    for(const requiredField of requiredFields) {
+    for (const requiredField of requiredFields) {
       this.errors[requiredField] = []
-      if(!this[requiredField]) {
+      if (!this[requiredField]) {
         isValid = false
         this.errors[requiredField].push("Can't be blank")
       }
@@ -93,3 +115,4 @@ class Animal {
   }
 }
 
+export default Animal
