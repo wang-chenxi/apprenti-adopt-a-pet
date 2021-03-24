@@ -17,25 +17,8 @@ class Animal {
     this.type_id = type_id
   }
 
-  static async findAllType() {
-    try {
-      const client = await pool.connect()
-      const result = await client.query("SELECT * FROM pet_types;")
-      const petTypesData = result.rows
-      const petTypes = petTypesData.map((petType) => {
-        return new this(petType)
-      })
-      client.release()
 
-      return petTypes
-
-    } catch (error) {
-      console.error(error)
-      pool.end()
-    }
-  }
-
-  static async findAllByType(type_id) {
+  static async findByType(type_id) {
     try {
       const client = await pool.connect()
       const result = await client.query("SELECT * FROM adoptable_pets WHERE type_id = $1", [type_id])
@@ -69,6 +52,44 @@ class Animal {
       console.error(error)
       pool.end()
     }
+  }
+
+  async saveAdoptRequest() {
+    try {
+      const client = await pool.connect()
+      const query = "INSERT INTO adoptable_pets (name, image_url, age, vaccination_status, adoption_status, type_id) VALUES ($1, $2, $3, $4, $5, $6)"
+      const values = [this.name, this.image_url, this.age, this.vaccination_status, this.adoption_status, this.type_id]
+      await client.query(query, values)
+
+      const result = await client.query("SELECT * FROM adoptable_pets ORDER BY id DESC LIMIT 1")
+      const newPet = result.rows[0]
+
+      this.id = newPet.id
+
+      client.release()
+
+      return true
+
+    } catch (error) {
+      console.error(error)
+      pool.end()
+      return false
+    }
+  }
+
+  isValid() {
+    this.errors = {}
+    const requiredFields = ["name", "image_url", "age", "vaccination_status", "adoption_status", "type_id"]
+    let isValid = true
+
+    for(const requiredField of requiredFields) {
+      this.errors[requiredField] = []
+      if(!this[requiredField]) {
+        isValid = false
+        this.errors[requiredField].push("Can't be blank")
+      }
+    }
+    return isValid
   }
 }
 
