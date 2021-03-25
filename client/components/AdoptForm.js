@@ -3,9 +3,9 @@ import React, { useState } from "react"
 const AdoptForm = props => {
   const [formRecord, setFormRecord] = useState({
     name: "",
-    phone_number: "",
+    phoneNumber: "",
     email: "",
-    home_status: "",
+    homeStatus: "",
     application_status: ""
   })
   const [errors, setErrors] = useState([])
@@ -51,7 +51,7 @@ const AdoptForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    if (formRecord.name !== "" && formRecord.phone_number !== "" && formRecord.email !== "")
+    if (formRecord.name !== "" && formRecord.phoneNumber !== "" && formRecord.email !== "")
       setErrors("")
     props.addNewApplication()
   }
@@ -70,14 +70,14 @@ const AdoptForm = props => {
         <input id="name" type="text" name="name" onChange={handleChange} value={formRecord.name} />
       </label>
 
-      <label htmlFor="phone_number">
+      <label htmlFor="phoneNumber">
         Phone Number:
         <input
-          id="phone_number"
+          id="phoneNumber"
           type="text"
-          name="phone_number"
+          name="phoneNumber"
           onChange={handleChange}
-          value={formRecord.phone_number}
+          value={formRecord.phoneNumber}
         />
       </label>
       <label htmlFor="email">
@@ -90,9 +90,9 @@ const AdoptForm = props => {
           value={formRecord.email}
         />
       </label>
-      <label htmlFor="home_status">
+      <label htmlFor="homeStatus">
         Home Status:
-        <select id="home_status" name="home_status" onChange={handleChange}>
+        <select id="homeStatus" name="homeStatus" onChange={handleChange}>
           <OPTION Value="ownHouse">Own House</OPTION>
           <OPTION Value="rentHouse">Rent House</OPTION>
           <OPTION Value="ownApartment">Own Apartment</OPTION>
