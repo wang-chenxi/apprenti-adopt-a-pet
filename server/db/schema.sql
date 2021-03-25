@@ -1,15 +1,12 @@
-DROP TABLE IF EXISTS pet_surrender_applications;
-DROP TABLE IF EXISTS adoption_applications;
-DROP TABLE IF EXISTS adoptable_pets;
-DROP TABLE IF EXISTS pet_types;
+-- CREATE db tables for cc-adopt-a-pet, if they don't exist.
 
-CREATE TABLE pet_types (
-	id SERIAL PRIMARY KEY,
-	type VARCHAR (255) NOT NULL,
-	description TEXT
-);
+CREATE TABLE IF NOT EXISTS pet_types (
+  id SERIAL PRIMARY KEY, 
+  type VARCHAR (255) NOT NULL,	
+  description TEXT
+  );
 
-CREATE TABLE adoptable_pets (
+CREATE TABLE IF NOT EXISTS adoptable_pets (
   id SERIAL PRIMARY KEY,
   name VARCHAR (255) NOT NULL,
   img_url VARCHAR(255) NOT NULL,
@@ -20,7 +17,7 @@ CREATE TABLE adoptable_pets (
   type_id INTEGER REFERENCES pet_types(id)
 );
 
-CREATE TABLE adoption_applications (
+CREATE TABLE IF NOT EXISTS adoption_applicatons (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR (255) NOT NULL,
 	phone_number VARCHAR (255) NOT NULL,
@@ -30,7 +27,7 @@ CREATE TABLE adoption_applications (
 	pet_id INTEGER REFERENCES adoptable_pets(id)
 );
 
-CREATE TABLE pet_surrender_applications (
+CREATE TABLE IF NOT EXISTS pet_surrender_applications (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   phone_number VARCHAR(255) NOT NULL,
