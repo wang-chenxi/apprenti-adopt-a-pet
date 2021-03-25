@@ -6,10 +6,10 @@ const AdoptForm = props => {
     phoneNumber: "",
     email: "",
     homeStatus: "",
-    application_status: ""
+    applicationStatus: ""
   })
   const [errors, setErrors] = useState([])
-  // When applicationStatus === true => Display message "Your request is in process" -- Default to false
+
   const [applicationStatus, setApplicationStatus] = useState(false)
 
   const addNewApplication = async () => {
@@ -58,7 +58,6 @@ const AdoptForm = props => {
 
   let applicationMessage
   if (applicationStatus) {
-    // Change this to display an object {"Your request is in process."}
     applicationMessage = <h2>"Your application is in process."</h2>
   }
 
