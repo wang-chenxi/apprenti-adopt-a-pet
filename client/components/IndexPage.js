@@ -11,7 +11,7 @@ const IndexPage = (props) => {
     }, [])
     const getPets = async () => {
         try {
-            const response = await fetch(`/api/v1/pets/${type}`)
+            const response = await fetch(`/api/v1/types/${type}`)
             if (!response.ok) {
                 const errorMessage = `${response.status} (${response.statusText})`
                 const error = new Error(errorMessage)
@@ -32,7 +32,8 @@ const IndexPage = (props) => {
                 type={type}
                 id={pet.id}
                 name={pet.name}
-                img={pet.img}
+                img={pet.img_url}
+                vac={pet.vaccination_status}
             />
         )
     })
