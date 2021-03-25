@@ -16,7 +16,6 @@ typeRouter.get('/:type', async (req, res) => {
             res.status(500).json({ message: "invalid type" })
         }
         const pets = await Animal.findbyType(type)
-        console.log(JSON.stringify(pets))
         res.status(200).json({ pets })
     } catch (error) {
         console.log(error)
