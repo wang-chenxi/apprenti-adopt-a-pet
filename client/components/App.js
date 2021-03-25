@@ -6,9 +6,9 @@ import NavBar from "./NavBar"
 const App = props => {
   return (
     <div>
-    <BrowserRouter>
-		  <Route path="/" component={NavBar} />
-    </BrowserRouter>
+      <BrowserRouter>
+        <Route path="/" component={NavBar} />
+      </BrowserRouter>
     <div className="navbar footer">
       <ul className="inline list no-bullet">
         <li>| &copy; Code-Club, Launch Academy Group Project March 2021 |</li>

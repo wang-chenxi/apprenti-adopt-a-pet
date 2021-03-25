@@ -3,10 +3,6 @@ import Animal from "../../../models/Animal.js"
 
 const surrenderRouter = new express.Router()
 
-surrenderRouter.get("/", (req, res) => {
-  res.render()
-})
-
 surrenderRouter.post("/", async (req, res) => {
   try {
     const newForm = req.body
@@ -18,7 +14,7 @@ surrenderRouter.post("/", async (req, res) => {
     }
   } catch (error) {
     console.error(error)
-    res.status(422)
+    res.status(500)
   }
 })
 

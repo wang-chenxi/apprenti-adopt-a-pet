@@ -10,8 +10,11 @@ const SurrenderForm = (props) => {
     petAge:"",
     petTypeID: "",
     petImageURL: "",
-    vaccinationStatusL: "",
+    vaccinationStatus: "",
   })
+  const [shouldSucceed, setShouldSucceed] = useState(false)
+  const [errors, setErrors] = useState({})
+  let formclassname = ""
 
   const handleChange = (event) => {
     setForm({
@@ -19,10 +22,6 @@ const SurrenderForm = (props) => {
       [event.currentTarget.name]: event.currentTarget.value
     })
   }
-
-  let formclassname = ""
-
-  const [shouldSucceed, setShouldSucceed] = useState(false)
 
   if(shouldSucceed) {
     formclassname = "hidden"
@@ -57,8 +56,6 @@ const SurrenderForm = (props) => {
     }
   }
 
-  const [errors, setErrors] = useState({})
-
   const validForSubmission = () => {
   	  let submitErrors = {}
   	  const requiredFields = [
@@ -84,8 +81,8 @@ const SurrenderForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault()
     if(validForSubmission()) {
-    postForm()
-    clearForm()
+      postForm()
+      clearForm()
     }
   }
 
@@ -98,7 +95,7 @@ const SurrenderForm = (props) => {
       petAge:"",
       petTypeID: "",
       petImageURL: "",
-      vaccinationStatusL: ""
+      vaccinationStatus: ""
     })
   }
 
@@ -131,11 +128,11 @@ const SurrenderForm = (props) => {
         <fieldset class="fieldset">
           <p>What kind of pet are you surrendering?</p>
           <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID === "1"} onChange={handleChange}/>
-          <label htmlFor="1">Pig</label>
+          <label htmlFor="petTypeID">Pig</label>
           <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID === "2"} onChange={handleChange}/>
-          <label htmlFor="2">Bunny</label>
+          <label htmlFor="petTypeID">Bunny</label>
           <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID === "3"} onChange={handleChange}/>
-          <label htmlFor="3">Unicorn</label>
+          <label htmlFor="petTypeID">Unicorn</label>
         </fieldset>
         <label htmlFor="petImageURL">Please provide a link to a photo of your pet:
           <input id="petImageURL" type="url" name="petImageURL" value={getForm.petImageURL} onChange={handleChange} />
@@ -143,11 +140,11 @@ const SurrenderForm = (props) => {
         <fieldset class="fieldset">
           <p>Please provide your pet's vaccination history:</p>
           <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus === "true"} onChange={handleChange}/>
-          <label htmlFor="TRUE">Vaccinated</label>
+          <label htmlFor="vaccinationStatus">Vaccinated</label>
           <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus === "false"} onChange={handleChange}/>
-          <label htmlFor="FALSE">Not Vaccinated</label>
+          <label htmlFor="vaccinationStatus">Not Vaccinated</label>
           <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus === "unknown"} onChange={handleChange}/>
-          <label htmlFor="NULL">Unknown</label>
+          <label htmlFor="vaccinationStatus">Unknown</label>
         </fieldset>
           <div className="button-group">
             <button className ="button hollow" onClick={clearForm}>Change of heart?</button>
