@@ -5,19 +5,19 @@ const typeRouter = new express.Router()
 
 typeRouter.get('/:type', async (req, res) => {
     try {
-        const type
-        if (req.params.type = "pig") {
+        let type
+        if (req.params.type == "pigs") {
             type = 1
-        } else if (req.params.type = "bunny") {
+        } else if (req.params.type == "bunnies") {
             type = 2
-        } else if (req.params.type = "unicorn") {
+        } else if (req.params.type == "unicorns") {
             type = 3
         } else {
             res.status(500).json({ message: "invalid type" })
         }
-        const pets = await Animal.findbyType(type)
+        const pets = await Animal.findByType(type)
         console.log(JSON.stringify(pets))
-        res.status(200).json({ pets })
+        res.status(200).json({ pets: pets })
     } catch (error) {
         console.log(error)
         res.status(500).json({ errors: error })
