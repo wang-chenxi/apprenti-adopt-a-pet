@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS pet_surrender_applications;
 DROP TABLE IF EXISTS adoption_applications;
 DROP TABLE IF EXISTS adoptable_pets;
 DROP TABLE IF EXISTS pet_types;
-CREATE TABLE IF NOT EXISTS pet_types (
+CREATE TABLE pet_types (
   id SERIAL PRIMARY KEY,
   type VARCHAR (255) NOT NULL,
   description TEXT

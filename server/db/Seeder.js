@@ -303,7 +303,7 @@ class Seeder {
           img_url:
             "https://d33kvxw2ykf996.cloudfront.net/wp-content/uploads/2015/02/Lavender-Leather-Halter-Champagne-Horn-1350x900-920x614.jpg",
           age: 17,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Lavendar is a 6th generation golden horned unicorn, meaning whoever adopts her is sure to find great fortune. Don''t miss out on this once in a lifetime opportunity!",
           adoption_status: "Not adopted",
@@ -314,7 +314,7 @@ class Seeder {
           name: "Rainbow",
           img_url: "https://images-na.ssl-images-amazon.com/images/I/61bdCV544HL._SL1001_.jpg",
           age: 36,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Rainbow is a loving and brave unicorn who loves nothing more than a delicious magical carrot and a good scratch behind the ear. Are you ready to meet your most special of friends?",
           adoption_status: "Not adopted",
@@ -326,7 +326,7 @@ class Seeder {
           img_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhEqCSLrujI5srE_MS7nbLexPEhZnLlDPg4A&usqp=CAU",
           age: 9,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Do you love a great hair flip? Then Sassy is just the unicorn for you. With her luscious flowing mane, you can be sure your attitude will always be on point!",
           adoption_status: "Not adopted",
@@ -338,7 +338,7 @@ class Seeder {
           img_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqaDXtGHlU0UlxLCKDv1kjzsrFrRnJ3-KZaw&usqp=CAU",
           age: 13,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Horatio was rescued from a marauding band of mischevious unicorns known as The Unithorns. Despite this rough upbringing, Horatio''s strong moral character lead him to seek out an adoptive parent and a better life. Take a chance on Horatio, it''ll be the best decision you ever made!",
           adoption_status: "Not adopted",
@@ -349,7 +349,7 @@ class Seeder {
           name: "Bella",
           img_url: "https://www.simplemost.com/wp-content/uploads/2018/05/unicorn.jpg",
           age: 5,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Bella is just a youngster, but she already knows what she wants in life. A warm and loving home to spread her magic in. Already fully grown, she''s a great fit for those in need of lots of joy in a small package!",
           adoption_status: "Not adopted",
@@ -361,7 +361,7 @@ class Seeder {
           img_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3QsneOYgJ_yJY64azxqpPPpuhk_BUwJXXLw&usqp=CAU",
           age: 26,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Tanya is ready for love, so much so that she''s waiting on a golden beach for you! If you''re ready to take the big leap, look no further.",
           adoption_status: "Not adopted",
@@ -373,7 +373,7 @@ class Seeder {
           img_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT54XM1yZpUQRB-DkVJZmjUg_xYfiYxWLhnfg&usqp=CAU",
           age: 18,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Do you ever feel like a good nuzzle on your neck is all that''s missing from your life? Then we have just the companion for you! Bruce is world renowned for his nuzzling abilities, said to bring rejuvenation and extended life to all he touches. Bring Bruce home today!",
           adoption_status: "Not adopted",
@@ -385,7 +385,7 @@ class Seeder {
           img_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEyegFJnQwrRojP9-MKr_Rx79hWunu1hAbBJG8S48W4dB-MLaZle3egVIxe1g&usqp=CAc",
           age: 42,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Twyla is an exceptionally special unicorn. Her rich, lustrous coat has magical healing properties that cure all sadness with a simple touch! Despite this precious gift, Twyla is in need a a loving home. Don''t delay, and risk missing out on this amazing forever friend.",
           adoption_status: "Not adopted",
@@ -397,7 +397,7 @@ class Seeder {
           img_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN6K7B-nXzptM24ueX781WCo94fsZ-DU9qrw&usqp=CAU",
           age: 31,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Sterling is a unicorn for all seasons. As comfortable in a warm barn as a magical fairy ball, he''ll be pleased to accompany you to the ends of the Earth. A lover of the arts, Sterling especially enjoys listening to classical music while you brush his strong yet gentle back. He''d be a wonderful addition to any good family",
           adoption_status: "Not adopted",
@@ -409,7 +409,7 @@ class Seeder {
           img_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpvCbWs6YWT06hy8LWBcHwILteEtsPYHHoSA&usqp=CAU",
           age: 54,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Mystique is the most magical of unicorns. As a 10th generation golden horned unicorn she has the ability to change her mane to whatever beautiful color she wants. Additionally, she has years of experience dealing with young children and is comfortable taking on riders. You don''t find Mystique every day, grab the opportunity while you can!",
           adoption_status: "Not adopted",
@@ -421,7 +421,7 @@ class Seeder {
           img_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyYJPFPE7es8KIVX3qxHzemO1Uh_7xZ5EITw&usqp=CAU",
           age: 7,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "Charlie is as sweet as they come. Born with the gift of an eternally youthful appearance, you can be sure Charlie will maintain the same adorable appearance to match his adorable personality. You''ll be shocked how much love fits in this small package!",
           adoption_status: "Not adopted",
@@ -433,7 +433,7 @@ class Seeder {
           img_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBr-s7-jYkp8aeefAKhk7p3dlJKYZaLOYXUw&usqp=CAU",
           age: 29,
-          vaccination_status: false,
+          vaccination_status: null,
           adoption_story:
             "One word: Heartthrob. Known far and wide for his charm, he is colloquially known as Mr Steal-Your-Heart. If you''re ready to meet the love of your life, you''ve found \"The One\"",
           adoption_status: "Not adopted",
@@ -444,7 +444,6 @@ class Seeder {
       for (let i = 0; i < adoptablePets.length; i++) {
         const adoptablePet = adoptablePets[i]
         const queryString = `INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_story, adoption_status, type_id) VALUES ('${adoptablePet.name}', '${adoptablePet.img_url}', ${adoptablePet.age}, ${adoptablePet.vaccination_status}, '${adoptablePet.adoption_story}', '${adoptablePet.adoption_status}', '${adoptablePet.type_id.id}')`
-        console.log(adoptablePet.age)
         await pool.query(queryString)
       }
       console.log("Seeding complete")
