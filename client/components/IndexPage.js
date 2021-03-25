@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import PetTile from "./PetTile.js"
-
 const IndexPage = (props) => {
     let { type } = useParams();
     const [pets, setPets] = useState([])
-
     useEffect(() => {
         getPets()
     }, [])
@@ -23,8 +21,6 @@ const IndexPage = (props) => {
             console.error(`Error in Fetch: ${err.message}`)
         }
     }
-
-
     const petList = pets.map(pet => {
         return (
             <PetTile
@@ -34,6 +30,7 @@ const IndexPage = (props) => {
                 name={pet.name}
                 img={pet.img_url}
                 vac={pet.vaccination_status}
+                age={pet.age}
             />
         )
     })
@@ -44,5 +41,4 @@ const IndexPage = (props) => {
         </div>
     )
 }
-
 export default IndexPage

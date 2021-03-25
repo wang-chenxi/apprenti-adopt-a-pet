@@ -1,5 +1,7 @@
 import Animal from "../../../models/Animal.js"
 
+const petRouter = new express.Router()
+
 petRouter.get("/pigs/:id", async (req, res) => {
   try {
     const pigId = req.params.id

@@ -6,9 +6,9 @@ import surrenderRouter from "./api/v1/surrenderRouter.js"
 
 const rootRouter = new express.Router()
 
-rootRouter.use("api/v1/types", typeRouter)
-rootRouter.use("api/v1/pets", petRouter)
-rootRouter.use("api/v1/surrender", surrenderRouter)
+rootRouter.use("/api/v1/types", typeRouter)
+rootRouter.use("/api/v1/pets", petRouter)
+rootRouter.use("/api/v1/surrender", surrenderRouter)
 
 rootRouter.use("/", clientRouter)
 
