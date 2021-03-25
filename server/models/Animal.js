@@ -85,11 +85,11 @@ class Animal {
     this.errors = {}
     const requiredFields = [
       "name",
-      "image_url",
+      "imgUrl",
       "age",
-      "vaccination_status",
-      "adoption_status",
-      "type_id"
+      "vaccinationStatus",
+      "adoptionStatus",
+      "typeId"
     ]
     let isValid = true
     for (const requiredField of requiredFields) {
