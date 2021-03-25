@@ -5,7 +5,7 @@ import PetTile from "./PetTile.js"
 const IndexPage = (props) => {
     let { type } = useParams();
     const [pets, setPets] = useState([])
-
+    console.log(type)
     useEffect(() => {
         getPets()
     }, [])
@@ -34,6 +34,7 @@ const IndexPage = (props) => {
                 name={pet.name}
                 img={pet.img_url}
                 vac={pet.vaccination_status}
+                age={pet.age}
             />
         )
     })
