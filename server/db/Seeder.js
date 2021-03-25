@@ -30,7 +30,7 @@ class Seeder {
           name: "Penelope",
           img_url:
             "https://opimedia.azureedge.net/-/media/images/men/editorial/blogs/homesteading-and-livestock/the-truth-about-mini-pigs/rsz_img_5741-media.jpg",
-          age: "3",
+          age: 3,
           vaccination_status: "T",
           adoption_story:
             "Penelope is a frisky young girl looking for her forever home. She loves peanuts, belly rubs, and long naps in the sun.",
@@ -42,17 +42,18 @@ class Seeder {
           name: "Ham Solo",
           img_url:
             "https://preview.redd.it/y3gxrk5f0ee61.jpg?width=3024&format=pjpg&auto=webp&s=2496c27cc7f83380593df88436d9e879e3c558b5",
-          age: "5",
+          age: 5,
           vaccination_status: "F",
           adoption_story:
             "Much like his starship piloting namesake, when the food is on, Ham Solo can move at .5 past light speed",
+          adoption_status: "Not adopted",
           type_id: pigs
         },
 
         {
           name: "Ziggy",
           img_url: "https://www.pigspeace.org/stories/img/ziggy.jpg",
-          age: "3",
+          age: 3,
           vaccination_status: "T",
           adoption_story:
             "Born with three legs Ziggy does not know any other life. She is up and about like all pigs ready for breakfast eery morning.",
@@ -64,7 +65,7 @@ class Seeder {
           name: "Vegans Nightmare",
           img_url:
             "https://resources.stuff.co.nz/content/dam/images/1/4/n/f/c/1/image.related.StuffLandscapeSixteenByNine.1240x700.14ne3v.png/1439935461934.jpg?format=pjpg&optimize=medium",
-          age: "6",
+          age: 6,
           vaccination_status: "F",
           adoption_story:
             "Don''t let this handsome face fool you. If you so much as whisper bacon in his vicicnity, he won''t forget it.",
@@ -75,7 +76,7 @@ class Seeder {
         {
           name: "Squiggle",
           img_url: "https://www.pigspeace.org/stories/img/gingersnapSept09.jpg",
-          age: "20",
+          age: 20,
           vaccination_status: "T",
           adoption_story:
             "Squiggles is our most senior pig. While he moves a little slower, he still has all the charm and character of his youth",
@@ -87,7 +88,7 @@ class Seeder {
           name: "Huck",
           img_url:
             "https://americanminipigassociation.com/wp-content/uploads/2015/03/image-3-1024x1024.jpeg",
-          age: "4",
+          age: 4,
           vaccination_status: "T",
           adoption_story:
             "Huck is a lovable loner who loves entertaining visitors and getting up to mischief when no one is paying attention to him.",
@@ -98,7 +99,7 @@ class Seeder {
         {
           name: "Gizmo",
           img_url: "https://www.pigspeace.org/stories/img/daisyOnPorch.jpg",
-          age: "2",
+          age: 2,
           vaccination_status: "F",
           adoption_story: "Gizmo was brought to us as the runt of the litter.",
           adoption_status: "Not adopted",
@@ -109,7 +110,7 @@ class Seeder {
           name: "Buttons",
           img_url:
             "https://opimedia.azureedge.net/-/media/Images/MEN/Editorial/Blogs/Homesteading-and-Livestock/The-Truth-About-Mini-Pigs/rsz_img_5741.jpg?h=550&w=550&la=en&hash=84B1E41EE23E0DF8E79F04B83D45E53E084AF0A9",
-          age: "1",
+          age: 1,
           vaccination_status: "F",
           adoption_story:
             "Buttons is a cute little scamp that charms everyone he meets. Rub his tummy and you''ll be friends forever.",
@@ -120,7 +121,7 @@ class Seeder {
         {
           name: "Ella",
           img_url: "https://www.pigspeace.org/stories/img/ella1.jpg",
-          age: "11",
+          age: 11,
           vaccination_status: "T",
           adoption_story:
             "Ella was given up shortly after her initial adoption, but this hasn''t dampeened her spirit. She loves playing with other animals.",
@@ -132,7 +133,7 @@ class Seeder {
           name: "McKisser",
           img_url:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Juliana_pig_wears_harness.jpg/229px-Juliana_pig_wears_harness.jpg",
-          age: "2",
+          age: 2,
           vaccination_status: "F",
           adoption_story:
             "Meet McKisser. She loves long walks, meeting new friends, and exploring new places.",
@@ -143,7 +144,7 @@ class Seeder {
         {
           name: "Pickles",
           img_url: "https://www.pigspeace.org/stories/img/pickles2009b.jpg",
-          age: "12",
+          age: 12,
           vaccination_status: "T",
           adoption_story: "Pickles is still very inquisitive and friendly, and loves to explore.",
           adoption_status: "Not adopted",
@@ -153,7 +154,7 @@ class Seeder {
         {
           name: "Honey",
           img_url: "https://www.pigspeace.org/stories/img/1920/honey_talks.jpg",
-          age: "7",
+          age: 7,
           vaccination_status: "T",
           adoption_story:
             "Honey loves spending time with the other pigs and playing find the peanut in the hay.",
@@ -197,7 +198,7 @@ class Seeder {
         {
           name: "Cinnabun",
           img_url: "https://www.petakids.com/wp-content/uploads/2015/04/Bunny-Outside.jpg",
-          age: 0,
+          age: NULL,
           vaccination_status: "f",
           adoption_story:
             "Cinnabun is happiest as a solo rabbit with close human friends. He is a gentle sweetheart and would love a quiet space where he can relax after hopping around. Like many rabbits, he doesn''t do well with being picked up, but loves gentle attention!",
@@ -210,7 +211,7 @@ class Seeder {
           img_url:
             "https://www.treehugger.com/thmb/ZjkSeSjq8OZ6rpZ1GN10iMuorrY=/2966x2096/filters:fill(auto,1)/GettyImages-953005498-4ca60c6c2c5f4b0e881b2746ad5f17ef.jpg",
           age: 8,
-          vaccination_status: "f",
+          vaccination_status: null,
           adoption_story:
             "Meet Lilly! This cute little mustached bunny can be a bit shy at first but she’s got such a cute personality when she gets to know you. She prefers a patient adopter who will give her enough time to let her shine. She loves hiding under blankets and sometimes hides so well. She loves getting talked to and sits for pets. She’s not super playful but does occasionally do a burst of binkies!",
           adoption_status: "Not adopted",
@@ -220,7 +221,7 @@ class Seeder {
         {
           name: "Oscar",
           img_url: "https://miro.medium.com/max/12032/1*99r7mbdm30qA1xrSJBuQjw.jpeg",
-          age: 0,
+          age: null,
           vaccination_status: "f",
           adoption_story:
             "This boy is still looking for his forever home! He has settling in quite well to his surroundings and has gotten use to having a large space to run around in as well as free roam while the family is home. His litter habits, temperament and personality would suite any household!",
@@ -233,7 +234,7 @@ class Seeder {
           img_url:
             "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2012/11/100388922-saving-bunny-money.jpg",
           age: 2,
-          vaccination_status: "f",
+          vaccination_status: "NULL",
           adoption_story:
             "Meet Muffin! Muffin was originally a stray, until some kind people rescued him and his brother. (They don’t live together) Muffin is a bit territorial, but he is full of personality. He loves to play, and cardboard is a favorite of his. He would not do well in a home with young kids, as he has nipped people before.",
           adoption_status: "Not adopted",
@@ -292,7 +293,7 @@ class Seeder {
           img_url:
             "https://www.vmcdn.ca/f/files/rmotoday/2020/20200910/20200908-canmore-rabbit-0086.jpg",
           age: 6,
-          vaccination_status: "f",
+          vaccination_status: "NULL",
           adoption_story:
             "A word from Charlie''s rescuers and current foster family: We don''t know much about him other than he loves to be snuggled, loves carrots/apples/spinach. He goes potty in one location. He is active, eats & drinks well. He enjoys sitting on top of his hutch and hopping around when he''s not being held or in his hutch.",
           adoption_status: "Not adopted",
@@ -445,6 +446,7 @@ class Seeder {
       for (let i = 0; i < adoptablePets.length; i++) {
         const adoptablePet = adoptablePets[i]
         const queryString = `INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_story, adoption_status, type_id) VALUES ('${adoptablePet.name}', '${adoptablePet.img_url}', '${adoptablePet.age}', '${adoptablePet.vaccination_status}', '${adoptablePet.adoption_story}', '${adoptablePet.adoption_status}', '${adoptablePet.type_id.id}')`
+        console.log(adoptablePet.age)
         await pool.query(queryString)
       }
       console.log("Seeding complete")
