@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react"
 
 const ShowPage = (props) => {
   const [pet, setPet] = useState({})
-  const [showForm, setShowForm] = useState(false)
-
-  const showForm = () => {
-    setShowForm(!showForm)
-  }
+  const [form, setForm] = useState(false)
 
   const getPet = async () => {
     try {
@@ -22,6 +18,10 @@ const ShowPage = (props) => {
     } catch(err) {
       console.error(`Pet not found: ${err.message}`)
     }
+  }
+
+  const showForm = () => {
+    setForm(!form)
   }
 
   useEffect(() => {
@@ -40,14 +40,14 @@ const ShowPage = (props) => {
       
       <div>
       <form>
-        <button onClick={showForm}>Adopt</button>
+        <button onClick={form}>Adopt</button>
       </form>
 
-      {showForm && (
+      {/* {showForm && (
         <form>
           ...
         </form>
-      )}
+      )} */}
     </div>
     </>
     

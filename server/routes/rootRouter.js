@@ -5,8 +5,8 @@ import petRouter from "./petRouter.js"
 
 const rootRouter = new express.Router()
 
-rootRouter.use("api/v1/types", typeRouter)
-rootRouter.use("api/v1/pets", petRouter)
+rootRouter.use("/api/v1/types", typeRouter)
+rootRouter.use("/api/v1/pets", petRouter)
 
 rootRouter.use("/", clientRouter)
 
