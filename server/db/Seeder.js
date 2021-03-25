@@ -444,7 +444,6 @@ class Seeder {
       for (let i = 0; i < adoptablePets.length; i++) {
         const adoptablePet = adoptablePets[i]
         const queryString = `INSERT INTO adoptable_pets (name, img_url, age, vaccination_status, adoption_story, adoption_status, type_id) VALUES ('${adoptablePet.name}', '${adoptablePet.img_url}', ${adoptablePet.age}, ${adoptablePet.vaccination_status}, '${adoptablePet.adoption_story}', '${adoptablePet.adoption_status}', '${adoptablePet.type_id.id}')`
-        console.log(adoptablePet.age)
         await pool.query(queryString)
       }
       console.log("Seeding complete")
