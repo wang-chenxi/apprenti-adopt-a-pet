@@ -14,7 +14,7 @@ const ErrorList = props => {
 	  )
    })
 	return (
-	  <div className="callout alert">
+	  <div className="callout warning">
       <ul>
 	      {listItems}
 	    </ul>

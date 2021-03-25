@@ -22,6 +22,8 @@ const SurrenderForm = (props) => {
 
   let formclassname = ""
 
+  const [shouldSucceed, setShouldSucceed] = useState(false)
+
   if(shouldSucceed) {
     formclassname = "hidden"
     return (
@@ -47,8 +49,8 @@ const SurrenderForm = (props) => {
           throw new Error(errorMessage)
         }
       } else {
-        const body = await response.json() 
-        successMessage = <div className="callout success"> Your request is in process.</div>
+        const body = await response.json()     
+        setShouldSucceed(true)
       }
     } catch (error) {
       console.error(`Error in fetchL ${error.message}`)
@@ -102,17 +104,15 @@ const SurrenderForm = (props) => {
 
   return (
     <div>
-      <div class="breadcrumbs navigation">
-        <ul className="menu">
-          <li><a href="/pets">HOME</a></li>
-          <li class="disabled">Surrender Form</li>
+      <div class="navigation">
+        <ul className="menu inline">
+          <li><a href="/pets">HOME /</a></li>
+          <li>Surrender Form</li>
         </ul>
       </div>
       <hr></hr>
       <form onSubmit={handleSubmit} className={formclassname} >
-        <div className="callout warning">
           <ErrorList errors={errors} />
-        </div>
         <label htmlFor="name">Your name:
           <input id="name" type="text" name="name" value={getForm.name} onChange={handleChange} placeholder="Your Name"/>
         </label>
@@ -130,11 +130,11 @@ const SurrenderForm = (props) => {
         </label>
         <fieldset class="fieldset">
           <p>What kind of pet are you surrendering?</p>
-          <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID} onChange={handleChange}/>
+          <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID === "1"} onChange={handleChange}/>
           <label htmlFor="1">Pig</label>
-          <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID} onChange={handleChange}/>
+          <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID === "2"} onChange={handleChange}/>
           <label htmlFor="2">Bunny</label>
-          <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID} onChange={handleChange}/>
+          <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID === "3"} onChange={handleChange}/>
           <label htmlFor="3">Unicorn</label>
         </fieldset>
         <label htmlFor="petImageURL">Please provide a link to a photo of your pet:
@@ -142,11 +142,11 @@ const SurrenderForm = (props) => {
         </label>
         <fieldset class="fieldset">
           <p>Please provide your pet's vaccination history:</p>
-          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus} onChange={handleChange}/>
+          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus === "true"} onChange={handleChange}/>
           <label htmlFor="TRUE">Vaccinated</label>
-          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus} onChange={handleChange}/>
+          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus === "false"} onChange={handleChange}/>
           <label htmlFor="FALSE">Not Vaccinated</label>
-          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus} onChange={handleChange}/>
+          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus === "unknown"} onChange={handleChange}/>
           <label htmlFor="NULL">Unknown</label>
         </fieldset>
           <div className="button-group">
