@@ -1,17 +1,21 @@
 import React, { useState } from "react"
-
+import ErrorList from "./ErrorList"
 const AdoptForm = props => {
   const [formRecord, setFormRecord] = useState({
     name: "",
     phoneNumber: "",
     email: "",
     homeStatus: "",
-    applicationStatus: ""
+    applicationStatus: "",
+    petId: props.id
   })
-  const [errors, setErrors] = useState([])
-
+  const [errors, setErrors] = useState({})
   const [applicationStatus, setApplicationStatus] = useState(false)
-
+  let formclassname = ""
+  if (applicationStatus) {
+    formclassname = "hidden"
+    return <div className="callout success">Your request is in process.</div>
+  }
   const addNewApplication = async () => {
     try {
       const response = await fetch("/api/v1/adoption_applications", {
@@ -33,42 +37,51 @@ const AdoptForm = props => {
       } else {
         const body = await response.json()
         console.log("Posted successfully!", body)
-        setShouldRedirect(true)
+        setApplicationStatus(true)
       }
     } catch (error) {
       console.error(`Error in AdoptForm POST: ${error.message}`)
     }
   }
-
   const handleChange = event => {
+    console.log(123, event.currentTarget.name, event.currentTarget.value)
     setFormRecord({ ...formRecord, [event.currentTarget.name]: event.currentTarget.value })
-
-    setApplicationStatus({
-      ...applicationStatus,
-      [event.currentTarget.name]: value
-    })
   }
-
+  const validForSubmission = () => {
+    let submitErrors = {}
+    const requiredFields = ["name", "phoneNumber", "email", "homeStatus"]
+    requiredFields.forEach(field => {
+      if (formRecord[field].trim() === "") {
+        submitErrors = {
+          ...submitErrors,
+          [field]: "cannot be blank"
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
   const handleSubmit = event => {
     event.preventDefault()
-    if (formRecord.name !== "" && formRecord.phoneNumber !== "" && formRecord.email !== "")
-      setErrors("")
-    props.addNewApplication()
+    if (validForSubmission()) {
+      addNewApplication()
+      setFormRecord({
+        name: "",
+        phoneNumber: "",
+        email: "",
+        homeStatus: "",
+        applicationStatus: ""
+      })
+    }
   }
-
-  let applicationMessage
-  if (applicationStatus) {
-    applicationMessage = <h2>"Your application is in process."</h2>
-  }
-
   return (
     <form onSubmit={handleSubmit}>
+      <ErrorList errors={errors} />
       <h1>Application to adopt</h1>
       <label htmlFor="name">
         Your Name:
         <input id="name" type="text" name="name" onChange={handleChange} value={formRecord.name} />
       </label>
-
       <label htmlFor="phoneNumber">
         Phone Number:
         <input
@@ -92,19 +105,18 @@ const AdoptForm = props => {
       <label htmlFor="homeStatus">
         Home Status:
         <select id="homeStatus" name="homeStatus" onChange={handleChange}>
-          <OPTION Value="ownHouse">Own House</OPTION>
-          <OPTION Value="rentHouse">Rent House</OPTION>
-          <OPTION Value="ownApartment">Own Apartment</OPTION>
-          <OPTION Value="rentApartment">Rent Apartment</OPTION>
-          <OPTION Value="other">Other</OPTION>
+          <option value=""></option>
+          <option value="ownHouse">Own House</option>
+          <option value="rentHouse">Rent House</option>
+          <option value="ownApartment">Own Apartment</option>
+          <option value="rentApartment">Rent Apartment</option>
+          <option value="other">Other</option>
         </select>
       </label>
-
       <div className="adopt-button">
         <input className="button" type="submit" value="Submit Adoption Form" />
       </div>
     </form>
   )
 }
-
 export default AdoptForm

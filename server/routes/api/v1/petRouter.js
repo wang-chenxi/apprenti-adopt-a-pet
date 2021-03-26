@@ -1,4 +1,5 @@
 import express from "express"
+import Adopter from "../../../models/Adopter.js"
 import Animal from "../../../models/Animal.js"
 const petRouter = new express.Router()
 
@@ -35,12 +36,12 @@ petRouter.get("/unicorns/:id", async (req, res) => {
 petRouter.post("/", async (req, res) => {
   try {
     const formData = req.body
-    const newPet = new Animal(formData)
-
-    if (await Animal.saveAdoptRequest()) {
-      return res.status(201).json({ pet: newPet })
+    const newAdopter = new Adopter(formData)
+    console.log(newAdopter)
+    if (await newAdopter.saveAdoptRequest()) {
+      return res.status(201).json({})
     } else {
-      return res.status(422).json({ errors: newPet.errors })
+      return res.status(422).json({})
     }
   } catch (error) {
     return res.status(500).json({ errors: error })

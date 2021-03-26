@@ -120,11 +120,11 @@ const SurrenderForm = (props) => {
         </label>
         <fieldset class="fieldset">
           <p>What kind of pet are you surrendering?</p>
-          <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID === "1"} onChange={handleChange}/>
+          <input id="petTypeID" type="radio" name="petTypeID" value="1" checked={getForm.petTypeID === "1"} onChange={handleChange} />
           <label htmlFor="petTypeID">Pig</label>
-          <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID === "2"} onChange={handleChange}/>
+          <input id="petTypeID" type="radio" name="petTypeID" value="2" checked={getForm.petTypeID === "2"} onChange={handleChange} />
           <label htmlFor="petTypeID">Bunny</label>
-          <input id="petTypeID" type="radio" name="petTypeID" value={getForm.petTypeID === "3"} onChange={handleChange}/>
+          <input id="petTypeID" type="radio" name="petTypeID" value="3" checked={getForm.petTypeID === "3"} onChange={handleChange} />
           <label htmlFor="petTypeID">Unicorn</label>
         </fieldset>
         <label htmlFor="petImageURL">Please provide a link to a photo of your pet:
@@ -132,11 +132,11 @@ const SurrenderForm = (props) => {
         </label>
         <fieldset class="fieldset">
           <p>Please provide your pet's vaccination history:</p>
-          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus === "true"} onChange={handleChange}/>
+          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value="true" checked={getForm.vaccinationStatus === "true"} onChange={handleChange} />
           <label htmlFor="vaccinationStatus">Vaccinated</label>
-          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus === "false"} onChange={handleChange}/>
+          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value="false" checked={getForm.vaccinationStatus === "false"} onChange={handleChange} />
           <label htmlFor="vaccinationStatus">Not Vaccinated</label>
-          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value={getForm.vaccinationStatus === "unknown"} onChange={handleChange}/>
+          <input id="vaccinationStatus" type="radio" name="vaccinationStatus" value="unknown" checked={getForm.vaccinationStatus === "unknown"} onChange={handleChange} />
           <label htmlFor="vaccinationStatus">Unknown</label>
         </fieldset>
           <div className="button-group">

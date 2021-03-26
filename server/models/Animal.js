@@ -54,7 +54,7 @@ class Animal {
     }
   }
 
-  async saveAdoptRequest() {
+  /* async saveAdoptRequest() {
     try {
       const client = await pool.connect()
       const query = "INSERT INTO adoption_applications (name, phone_number, email, home_status) VALUES ($1, $2, $3, $4)"
@@ -75,7 +75,7 @@ class Animal {
       pool.end()
       return false
     }
-  }
+  } */
 
   async saveSurrender() {
     try {
