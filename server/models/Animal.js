@@ -66,37 +66,6 @@ class Animal {
     }
   }
 
-  async saveSurrender() {
-    try {
-      const client = await pool.connect()
-      const query =
-        "INSERT INTO pet_surrender_applications (name, phone_number, email, pet_name, pet_age, pet_type_id) VALUES ($1, $2, $3, $4, $5, $6)"
-      const values = [
-        this.name,
-        this.phoneNumber,
-        this.email,
-        this.petName,
-        this.petAge,
-        this.petTypeId
-      ]
-      await client.query(query, values)
-
-      const result = await client.query(
-        "SELECT * FROM surrender_applications ORDER BY id DESC LIMIT 1"
-      )
-      const newSurrender = result.rows[0]
-      console.log(newSurrender)
-      this.id = newSurrender.id
-
-      client.release()
-
-      return true
-    } catch (error) {
-      console.error(error)
-      pool.end()
-      return false
-    }
-  }
 
   isValid() {
     this.errors = {}

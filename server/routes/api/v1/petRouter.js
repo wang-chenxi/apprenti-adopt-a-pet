@@ -18,7 +18,6 @@ petRouter.post("/", async (req, res) => {
   try {
     const formData = req.body
     const newAdopter = new Adopter(formData)
-    console.log(newAdopter)
     if (await newAdopter.saveAdoptRequest()) {
       return res.status(201).json({})
     } else {

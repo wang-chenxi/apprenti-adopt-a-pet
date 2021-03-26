@@ -23,7 +23,7 @@ const LandingPage = props => {
       </div>
       <div className="inner-content cell small-4">
         <a href="/pets/unicorns">
-          <h2>UNICORN</h2>
+          <h2>UNICORNS</h2>
           <img
             src="https://images-na.ssl-images-amazon.com/images/I/61bdCV544HL._SL1001_.jpg"
             alt="a stock photo of a horse dressed as a unicorn"

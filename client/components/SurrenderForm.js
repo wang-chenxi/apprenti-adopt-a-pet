@@ -18,7 +18,6 @@ const SurrenderForm = props => {
   let formclassname = ""
 
   const handleChange = event => {
-    console.log(event.currentTarget.name, event.currentTarget.value)
     setForm({
       ...getForm,
       [event.currentTarget.name]: event.currentTarget.value
