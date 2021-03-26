@@ -1,28 +1,32 @@
+
 import React, { useState, useEffect } from "react"
 
 const ShowPage = (props) => {
   const [pet, setPet] = useState({})
-  const [form, setForm] = useState(false)
+  
 
+  const pigVariable = ""
   const getPet = async () => {
     try {
       const petId = props.match.params.id
-      const response = await fetch(`/api/v1/${type}/${petId}`)
+      const response = await fetch(`/api/v1/id/${petId}`)
+
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
         throw(error)
       }
       const responseBody = await response.json()
+     
       setPet(responseBody.pet)
     } catch(err) {
       console.error(`Pet not found: ${err.message}`)
     }
   }
 
-  const showForm = () => {
-    setForm(!form)
-  }
+  
+ 
+  console.log(123, pet)
 
   useEffect(() => {
     getPet()
@@ -31,7 +35,7 @@ const ShowPage = (props) => {
   return (
     <>
       <header>
-      <img>{this.imgUrl}</img>
+      <img src={pet.imgUrl} /> 
       </header>
       <h1>{pet.name}</h1>
       <h2>{pet.age}</h2>
@@ -40,7 +44,7 @@ const ShowPage = (props) => {
       
       <div>
       <form>
-        <button onClick={form}>Adopt</button>
+        <button>Adopt</button>
       </form>
 
       {/* {showForm && (

@@ -1,16 +1,18 @@
+import express from "express"
 import Animal from "../../../models/Animal.js"
+const petRouter = new express.Router()
 
-petRouter.get("/pigs/:id", async (req, res) => {
+petRouter.get("/:id", async (req, res) => {
   try {
-    const pigId = req.params.id
-    const pig = await Animal.findById(pigId)
-    return res.status(200).json({ pig: pig })
+    const petId = req.params.id
+    const pet = await Animal.findById(petId)
+    return res.status(200).json({ pet: pet })
   } catch (error) {
     return res.status(500).json({ errors: error })
   }
 })
 
-petRouter.get("/bunnies/:id", async (req, res) => {
+/* petRouter.get("/bunnies/:id", async (req, res) => {
   try {
     const bunnieId = req.params.id
     const bunnie = await Animal.findById(bunnieId)
@@ -28,7 +30,7 @@ petRouter.get("/unicorns/:id", async (req, res) => {
   } catch (error) {
     return res.status(500).json({ errors: error })
   }
-})
+}) */
 
 petRouter.post("/", async (req, res) => {
   try {

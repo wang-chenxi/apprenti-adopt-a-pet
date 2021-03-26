@@ -22,7 +22,7 @@ class Animal {
     try {
       const client = await pool.connect()
       const result = await client.query("SELECT * FROM adoptable_pets WHERE type_id = $1", [type_id])
-      const allOfTypeData = result.rows[0]
+      const allOfTypeData = result.rows
       const allOfType = allOfTypeData.map((ofType) => {
         return new this(ofType)
       })
