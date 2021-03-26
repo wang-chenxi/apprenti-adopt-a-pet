@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 
 const ShowPage = (props) => {
   const [pet, setPet] = useState({})
-  
+  const [showForm, setForm] = useState(false)
 
   const pigVariable = ""
   const getPet = async () => {
@@ -24,7 +24,17 @@ const ShowPage = (props) => {
     }
   }
 
-  
+  const toggleQuestionSelect = id => {
+    if (id === selectedQuestion) {
+      setSelectedQuestion(null)
+    } else {
+      setSelectedQuestion(id)
+    }
+  }
+
+  let handleClick = () => {
+    toggleQuestionSelect(question.id)
+  }
  
   console.log(123, pet)
 
