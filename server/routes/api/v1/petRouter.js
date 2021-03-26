@@ -1,6 +1,7 @@
 import express from "express"
 import Adopter from "../../../models/Adopter.js"
 import Animal from "../../../models/Animal.js"
+
 const petRouter = new express.Router()
 
 petRouter.get("/:id", async (req, res) => {
@@ -12,26 +13,6 @@ petRouter.get("/:id", async (req, res) => {
     return res.status(500).json({ errors: error })
   }
 })
-
-/* petRouter.get("/bunnies/:id", async (req, res) => {
-  try {
-    const bunnieId = req.params.id
-    const bunnie = await Animal.findById(bunnieId)
-    return res.status(200).json({ bunnie: bunnie })
-  } catch (error) {
-    return res.status(500).json({ errors: error })
-  }
-})
-
-petRouter.get("/unicorns/:id", async (req, res) => {
-  try {
-    const unicornId = req.params.id
-    const unicorn = await Animal.findById(unicornId)
-    return res.status(200).json({ unicorn: unicorn })
-  } catch (error) {
-    return res.status(500).json({ errors: error })
-  }
-}) */
 
 petRouter.post("/", async (req, res) => {
   try {

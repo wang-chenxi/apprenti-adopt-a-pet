@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
 import AdoptForm from "./AdoptForm"
+
 const ShowPage = props => {
   const [pet, setPet] = useState({})
   const [form, setForm] = useState(false)
-  const pigVariable = ""
+
   const getPet = async () => {
     try {
       const petId = props.match.params.id
@@ -19,9 +20,7 @@ const ShowPage = props => {
       console.error(`Pet not found: ${err.message}`)
     }
   }
-  /*  const showForm = () => {
-    setForm(!form)
-  } */
+
   const toggleFormShow = () => {
     if (!form) {
       setForm(true)
@@ -29,45 +28,50 @@ const ShowPage = props => {
       setForm(false)
     }
   }
+
   let Adopt
   if (form == true) {
-    Adopt = <AdoptForm id = {pet.id}/>
+    Adopt = <AdoptForm id={pet.id} />
   }
-  let handleClick = () => {
+
+  let handleClick = event => {
     event.preventDefault()
     toggleFormShow()
   }
+
   useEffect(() => {
     getPet()
   }, [])
-  console.log(pet)
+
   let vac = "N/A"
   if (pet.vaccinationStatus === true) {
     vac = "Yes"
   } else if (props.vaccinationStatus === false) {
     vac = "No"
   }
+
+  const altext = `a photo of ${pet.name}`
+
   return (
-    <>
-      <header>
-        <img src={pet.imgUrl} />
-      </header>
-      <h1>{pet.name}</h1>
-      <h2>{pet.age}</h2>
-      <h2>Vaccination status:{vac}</h2>
-      <h2>{pet.adoptionStory}</h2>
-      <div>
-        <form>
-          <button onClick={handleClick}>Adopt</button>
-        </form>
-        {Adopt}
-        {/* {showForm && (
-        <form>
-          ...
-        </form>
-      )} */}
+    <div>
+      <div className="showpage">
+        <img className="showimage" src={pet.imgUrl} alt={altext} />
+        <h1>Meet {pet.name}</h1>
+        <h3>{pet.age} years old</h3>
+        <h3>Vaccination status: {vac}</h3>
+        <p classname="bio">{pet.adoptionStory}</p>
+
+        <div>
+          <div>
+            <form>
+              <button onClick={handleClick}>Adopt</button>
+            </form>
+            {Adopt}
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
+
 export default ShowPage

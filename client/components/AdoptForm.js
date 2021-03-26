@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import ErrorList from "./ErrorList"
+
 const AdoptForm = props => {
   const [formRecord, setFormRecord] = useState({
     name: "",
@@ -9,13 +10,16 @@ const AdoptForm = props => {
     applicationStatus: "",
     petId: props.id
   })
+
   const [errors, setErrors] = useState({})
   const [applicationStatus, setApplicationStatus] = useState(false)
   let formclassname = ""
+
   if (applicationStatus) {
     formclassname = "hidden"
     return <div className="callout success">Your request is in process.</div>
   }
+
   const addNewApplication = async () => {
     try {
       const response = await fetch("/api/v1/adoption_applications", {
@@ -43,10 +47,12 @@ const AdoptForm = props => {
       console.error(`Error in AdoptForm POST: ${error.message}`)
     }
   }
+
   const handleChange = event => {
     console.log(123, event.currentTarget.name, event.currentTarget.value)
     setFormRecord({ ...formRecord, [event.currentTarget.name]: event.currentTarget.value })
   }
+
   const validForSubmission = () => {
     let submitErrors = {}
     const requiredFields = ["name", "phoneNumber", "email", "homeStatus"]
@@ -61,6 +67,7 @@ const AdoptForm = props => {
     setErrors(submitErrors)
     return _.isEmpty(submitErrors)
   }
+
   const handleSubmit = event => {
     event.preventDefault()
     if (validForSubmission()) {
@@ -74,6 +81,7 @@ const AdoptForm = props => {
       })
     }
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <ErrorList errors={errors} />
@@ -119,4 +127,5 @@ const AdoptForm = props => {
     </form>
   )
 }
+
 export default AdoptForm
