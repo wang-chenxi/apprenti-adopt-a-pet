@@ -24,16 +24,16 @@ const ShowPage = (props) => {
     }
   }
 
-  const toggleQuestionSelect = id => {
-    if (id === selectedQuestion) {
-      setSelectedQuestion(null)
+  const toggleFormShow () => {
+    if (!showForm) {
+      setForm(true)
     } else {
-      setSelectedQuestion(id)
+      setForm(false)
     }
   }
 
   let handleClick = () => {
-    toggleQuestionSelect(question.id)
+    toggleFormShow()
   }
  
   console.log(123, pet)

@@ -15,6 +15,7 @@ const SurrenderForm = (props) => {
   const [errors, setErrors] = useState({})
   let formclassname = ""
   const handleChange = (event) => {
+    console.log(event.currentTarget.name, event.currentTarget.value)
     setForm({
       ...getForm,
       [event.currentTarget.name]: event.currentTarget.value
@@ -28,7 +29,7 @@ const SurrenderForm = (props) => {
   }
   const postForm = async () => {
     try {
-      const response = await fetch("/api/v1/surrenders", {
+      const response = await fetch("/api/v1/surrender", {
         method: "POST",
         credentials: "same-origin",
         headers: new Headers({
@@ -127,7 +128,7 @@ const SurrenderForm = (props) => {
           <label htmlFor="petTypeID">Unicorn</label>
         </fieldset>
         <label htmlFor="petImageURL">Please provide a link to a photo of your pet:
-          <input id="petImageURL" type="url" name="petImageURL" value={getForm.petImageURL} onChange={handleChange} />
+          <input id="petImageURL" type="text" name="petImageURL" value={getForm.petImageURL} onChange={handleChange} />
         </label>
         <fieldset class="fieldset">
           <p>Please provide your pet's vaccination history:</p>
