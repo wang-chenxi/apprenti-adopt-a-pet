@@ -31,8 +31,8 @@ const IndexPage = (props) => {
                 type={type}
                 id={pet.id}
                 name={pet.name}
-                img={pet.img_url}
-                vac={pet.vaccination_status}
+                img={pet.imgUrl}
+                vac={pet.vaccinationStatus}
                 age={pet.age}
             />
         )
