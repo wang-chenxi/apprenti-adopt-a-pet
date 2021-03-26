@@ -64,7 +64,9 @@ const ShowPage = props => {
         <div>
           <div>
             <form>
-              <button onClick={handleClick}>Adopt</button>
+              <button className="button hollow" onClick={handleClick}>
+                Adopt
+              </button>
             </form>
             {Adopt}
           </div>
